@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
+import ProjectsSection from "./components/ProjectsSection";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <main>
         <Header />
         <LandingSection />
+        <ProjectsSection />
       </main>
     </ChakraProvider>
   );
