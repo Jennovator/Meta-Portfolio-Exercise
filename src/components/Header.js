@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 import useCustomFontStyle from "../hooks/useCustomFontStyle";
+import {useRef, useEffect} from 'react';
 
 // contains objects that represent different social media profiles, contains 2 properties: icon (value from FortAwesome) and url (Corresponding social URL)
 const socials = [
@@ -36,6 +37,33 @@ const socials = [
 const Header = () => {
     // Calling the useCustomFontStyle hook and passing it on to customFontStyle variable 
     const customFontStyle = useCustomFontStyle();
+    const headerRef = useRef(null);
+
+    // Implement a header show-hide animation depending on the scroll direction
+    useEffect(() => {
+        let prevScroll = window.scrollY;
+    
+         const handleScroll = () => {
+           const currentScroll = window.scrollY;
+           const headerElement = headerRef.current;
+           
+           if (!headerElement) {
+             return;
+           }
+           if (prevScroll > currentScroll) {
+            headerElement.style.transform = "translateY(0)";
+           } else {
+            headerElement.style.transform = "translateY(-200px)";
+           }
+          prevScroll = currentScroll;
+         };
+    
+         window.addEventListener("scroll", handleScroll);
+    
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
 
     // This function will be used to handle the click events on the navigation links and also creating smooth scrolling behavior
     // when the link is clicked, the function is invoked with an anchor parameter corresponding to the section's name 
@@ -52,6 +80,7 @@ const Header = () => {
 
     return (
         <Box
+            ref={headerRef}
             position="fixed"
             top={0}
             left={0}
