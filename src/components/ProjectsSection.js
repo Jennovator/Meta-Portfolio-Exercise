@@ -3,6 +3,7 @@ import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
 
+// An array of objects representing different projects with 3 properties: title, description, and getImageSrc
 const projects = [
   {
     title: "React Space",
@@ -30,6 +31,7 @@ const projects = [
   },
 ];
 
+// This component displays a section containing featured projects
 const ProjectsSection = () => {
   return (
     <FullScreenSection
@@ -47,6 +49,7 @@ const ProjectsSection = () => {
         gridTemplateColumns="repeat(2,minmax(0,1fr))"
         gridGap={8}
       >
+        {/* Mapping through the projects array and rendering a card component for each project */}
         {projects.map((project) => (
           <Card
             key={project.title}
