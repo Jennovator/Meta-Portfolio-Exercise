@@ -2,6 +2,7 @@ import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
 import Card from "./Card";
+import useCustomFontStyle from "../hooks/useCustomFontStyle";
 
 // An array of objects representing different projects with 3 properties: title, description, and getImageSrc
 const projects = [
@@ -33,6 +34,9 @@ const projects = [
 
 // This component displays a section containing featured projects
 const ProjectsSection = () => {
+  // Calling the useCustomFontStyle hook and passing it on to customFontStyle variable 
+  const customFontStyle = useCustomFontStyle();
+
   return (
     <FullScreenSection
       backgroundColor="#14532d"
@@ -41,7 +45,7 @@ const ProjectsSection = () => {
       alignItems="flex-start"
       spacing={8}
     >
-      <Heading as="h1" id="projects-section">
+      <Heading as="h1" id="projects-section" style={customFontStyle}>
         Featured Projects
       </Heading>
       <Box

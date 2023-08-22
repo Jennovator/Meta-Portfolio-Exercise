@@ -16,8 +16,12 @@ import * as Yup from "yup";
 import FullScreenSection from "./FullScreenSection";
 import useSubmit from "../hooks/useSubmit";
 import { useAlertContext } from "../context/alertContext";
+import useCustomFontStyle from "../hooks/useCustomFontStyle";
 
 const ContactMeSection = () => {
+    // Calling the useCustomFontStyle hook and passing it on to customFontStyle variable 
+    const customFontStyle = useCustomFontStyle();
+
     const { isLoading, response, submit } = useSubmit();
     const { onOpen } = useAlertContext();
 
@@ -65,8 +69,8 @@ const ContactMeSection = () => {
                 py={2}
                 spacing={2}
             >
-                <VStack w="850px" p={30} alignItems="flex-start" color="black">
-                    <Heading as="h1" id="contactme-section">
+                <VStack w="850px" p={30} alignItems="flex-start" color="black" style={customFontStyle}>
+                    <Heading as="h1" id="contactme-section" style={customFontStyle}>
                         Contact me
                     </Heading>
                     <Box p={6} rounded="md" w="100%" backgroundColor="#EDEFEE" borderRadius="xl">
