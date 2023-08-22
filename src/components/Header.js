@@ -86,10 +86,10 @@ const Header = () => {
                             {/* Add internal links to Projects and Contact me section 
                             - when the links are clicked, they invoke the handleClick function to scroll to 
                             the corresponding sections of the webpage.*/}
-                            <a href="#" onClick={handleClick("projects")}>
+                            <a href="#projects-section" onClick={handleClick("projects")}>
                                 PROJECTS
                             </a>
-                            <a href="#" onClick={handleClick("contact")}>
+                            <a href="#contactme-section" onClick={handleClick("contact")}>
                                 CONTACT ME
                             </a>
                         </HStack>
